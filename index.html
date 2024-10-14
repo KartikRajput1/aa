@@ -1,0 +1,1952 @@
+<html lang="en">
+  
+  <head>
+   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* ///////////..utility classes../////////// */
+
+.container {
+  max-width: 1100px;
+  width: 90%;
+  margin: auto;
+}
+
+.btn3{
+  padding: 20px 80px;
+  border-color: #000;
+  border-style: solid;
+  margin:10px 4px;
+  color: black;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  display:inline-block;    
+}
+.btn3::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #000;
+  -webkit-transform: scaleX(.3);
+  transform: scaleX(.3);
+  opacity: 0;
+  transition: all .3s
+}
+.btn3:hover::before{
+  opacity: 1;
+  background-color: #ffffff8f;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
+  transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
+}
+.btn-primary {
+  color: #fff;
+  background: #16a083;
+}
+
+.btn-primary:hover {
+  background: #117964;
+  transition: background 0.3s ease-in-out;
+}
+
+/* ............/navbar/............ *
+
+/* desktop mode............/// */
+#navbar {
+  background: rgba(255, 255, 255, 0.482);
+  color: rgb(13, 26, 38);
+  position: fixed;
+  top: 0;
+  height: 60px;
+  line-height: 60px;
+  width: 100vw;
+  z-index: 10;
+}
+
+.nav-wrapper {
+  margin: auto;
+  text-align: center;
+  width: 90%;
+} @media(max-width: 768px) {
+    .nav-wrapper {
+      width: 90%;
+    }
+  } @media(max-width: 638px) {
+      .nav-wrapper {
+        width: 100%;
+      }
+    } 
+
+
+.logo {
+  float: left;
+  margin-left: 28px;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 25%;
+} 
+.logo a{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  
+}
+
+.logo a img{
+  padding: 5px;
+  width: 4vw;
+  /* size: 60vw; */
+}
+.logo a h5{
+  margin: 0; /* Remove margins */
+  padding-left: 10px; /* Add spacing between logo and text */
+  font-size: 1.3vw; /* Adjust font size if needed */
+  text-align: center;
+  text-size-adjust: 50;
+  padding: 2%;
+}
+@media(max-width: 768px) {
+    .logo {
+      margin-left: 5px;
+    }
+  }
+
+#navbar ul {
+  display: inline-block;
+  float: right;
+  list-style: none;
+  /* margin-right: 14px; */
+  margin-top: -2px;
+  text-align: right;
+  font-weight: bolder;
+  transition: transform 0.5s ease-out;
+  -webkit-transition: transform 0.5s ease-out;
+} @media(max-width: 640px) {
+    #navbar ul {
+      display: none;
+    }
+  } @media(orientation: landscape) {
+      #navbar ul {
+        display: inline-block;
+      }
+    }
+
+#navbar li {
+  display: inline-block;
+}
+
+#navbar li a {
+  color: black;
+  display: block;
+  font-size: 1.0vw;
+  height: 50px;
+  letter-spacing: 1px;
+  margin: 0 20px;
+  padding: 0 4px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+#navbar li a:hover {
+  /* border-bottom: 1px solid rgb(28, 121, 184); */
+  color: rgb(28, 121, 184);
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+
+/* Animated Bottom Line */
+#navbar li a:before, #navbar li a:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: -1px;
+  background: rgb(13, 26, 38);
+}
+
+#navbar li a:before {
+  left: 0;
+  transition: 0.5s;
+}
+
+#navbar li a:after {
+  background: rgb(13, 26, 38);
+  right: 0;
+  /* transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); */
+}
+
+#navbar li a:hover:before {
+  background: rgb(13, 26, 38);
+  width: 100%;
+  transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
+}
+
+#navbar li a:hover:after {
+  background: transparent;
+  width: 100%;
+  /* transition: 0s; */
+}
+
+@media(max-width: 640px) {
+  .menuIcon {
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    right: 15px;
+    top: 20px;
+    height: 23px;
+    width: 27px;
+    z-index: 12;
+  }
+
+  /* Icon Bars */
+  .icon-bars {
+    background: rgb(13, 26, 38);
+    position: absolute;
+    left: 1px;
+    top: 45%;
+    height: 2px;
+    width: 20px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  } 
+
+  .icon-bars::before {
+    background: rgb(13, 26, 38);
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -8px;
+    height: 2px;
+    width: 20px;
+/*     -webkit-transition: top 0.2s ease 0.3s;
+    transition: top 0.2s ease 0.3s; */
+    -webkit-transition: 0.3s width 0.4s;
+    transition: 0.3s width 0.4s;
+  }
+
+  .icon-bars::after {
+    margin-top: 0px;
+    background: rgb(13, 26, 38);
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    height: 2px;
+    width: 20px;
+/*     -webkit-transition: top 0.2s ease 0.3s;
+    transition: top 0.2s ease 0.3s; */
+    -webkit-transition: 0.3s width 0.4s;
+    transition: 0.3s width 0.4s;
+  }
+
+  /* Bars Shadows */
+  .icon-bars.overlay {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 20px;
+    animation: middleBar 3s infinite 0.5s;
+    -webkit-animation: middleBar 3s infinite 0.5s;
+  } @keyframes middleBar {
+      0% {width: 0px}
+      50% {width: 20px}
+      100% {width: 0px}
+    } @-webkit-keyframes middleBar {
+        0% {width: 0px}
+        50% {width: 20px}
+        100% {width: 0px}
+      }
+
+  .icon-bars.overlay::before {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 10px;
+    animation: topBar 3s infinite 0.2s;
+    -webkit-animation: topBar 3s infinite 0s;
+  } @keyframes topBar {
+      0% {width: 0px}
+      50% {width: 10px}
+      100% {width: 0px}
+    } @-webkit-keyframes topBar {
+        0% {width: 0px}
+        50% {width: 10px}
+        100% {width: 0px}
+      }
+
+  .icon-bars.overlay::after {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 15px;
+    animation: bottomBar 3s infinite 1s;
+    -webkit-animation: bottomBar 3s infinite 1s;
+  } @keyframes bottomBar {
+      0% {width: 0px}
+      50% {width: 15px}
+      100% {width: 0px}
+    } @-webkit-keyframes bottomBar {
+        0% {width: 0px}
+        50% {width: 15px}
+        100% {width: 0px}
+      }
+
+
+  /* Toggle Menu Icon */
+  .menuIcon.toggle .icon-bars {
+    top: 5px;
+    transform: translate3d(0, 5px, 0) rotate(135deg);
+    transition-delay: 0.1s;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .menuIcon.toggle .icon-bars::before {
+    top: 0;
+    transition-delay: 0.1s;
+    opacity: 0;
+  }
+
+  .menuIcon.toggle .icon-bars::after {
+    top: 10px;
+    transform: translate3d(0, -10px, 0) rotate(-270deg);
+    transition-delay: 0.1s;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .menuIcon.toggle .icon-bars.overlay {
+    width: 20px;
+    opacity: 0;
+    -webkit-transition: all 0s ease 0s;
+    transition: all 0s ease 0s;
+  }
+}
+
+
+/*======================================================
+                   Responsive Mobile Menu 
+  ======================================================*/
+.overlay-menu {
+  background: lightblue;
+  color: rgb(13, 26, 38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 15px;
+  transform: translateX(-100%);
+  width: 100vw;
+  height: 100vh;
+  -webkit-transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+}
+
+.overlay-menu ul, .overlay-menu li {
+  display: block;
+  position: relative;
+}
+
+.overlay-menu li a {
+  display: block;
+  font-size: 1.8em;
+  letter-spacing: 4px;
+/*   opacity: 0; */
+  padding: 10px 0;
+  text-align: right;
+  text-transform: uppercase;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+/*   -webkit-transition: 0.2s opacity 0.2s ease-out;
+  transition: 0.2s opacity 0.2s ease-out; */
+}
+
+.overlay-menu li a:hover,
+.overlay-menu li a:active {
+  color: rgb(28, 121, 184);
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+
+
+
+
+/* ............//// Showcase styling ////......... */
+/* .typing-demo {
+    width: 90ch;
+    animation: typing 2s steps(40), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding-left: 7.5%;
+  }
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+      
+    }
+    
+  } */
+
+.showcase-area {
+  height: 90%;
+  width: 100%;
+  color: #000000;
+  background:url("https://i.ibb.co/kDNj0NY/home-bg.jpg");
+  background-position:center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.showcase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.6rem;
+  font-weight: bolder;
+}
+
+.main-title {
+  text-transform: uppercase;
+  margin-top: 1.5em;
+}
+
+/* ......//about us//...... */
+
+#about {
+  padding: 50px 0;
+  background: #f5f5f7;
+}
+
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#about h2 {
+  font-size: 2.3rem;
+}
+
+#about p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+#about .small {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.about-img {
+  flex: 1 1 400px;
+  padding: 30px;
+  transform: translateX(150%);
+  animation: about-img-animation 1s ease-in-out forwards;
+}
+
+@keyframes about-img-animation {
+  100% {
+    transform: translate(0);
+  }
+}
+
+.about-text {
+    text-align: justify;
+  flex: 1 1 400px;
+  padding: 30px;
+  transform: translate(-150%);
+  animation: about-text-animation 1s ease-in-out forwards;
+}
+
+@keyframes about-text-animation {
+  100% {
+    transform: translate(0);
+  }
+}
+
+.about-img img {
+  display: block;
+  height: 400px;
+  max-width: 100%;
+  margin: auto;
+  object-fit: cover;
+  object-position: right;
+}
+
+
+/* ......//Krida Jagrithi//...... */
+
+
+#KJ {
+    padding: 50px 0;
+    background: #f5f5f7;
+  }
+  
+  .KJ-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #KJ h2 {
+    font-size: 2.3rem;
+  }
+  
+  #KJ p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  #KJ .small {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 600;
+  }
+  
+  .KJ-img {
+    flex: 1 1 400px;
+    padding: 30px;
+    transform: translateX(-150%);
+    animation: KJ-img-animation 1s ease-in-out forwards;
+  }
+  
+  @keyframes KJ-img-animation {
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  .KJ-text {
+    text-align: justify;
+    flex: 1 1 400px;
+    padding: 30px;
+    transform: translate(150%);
+    animation: KJ-text-animation 1s ease-in-out forwards;
+  }
+  
+  @keyframes KJ-text-animation {
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  .KJ-img img {
+    display: block;
+    height: 400px;
+    max-width: 100%;
+    margin: auto;
+    object-fit: cover;
+    object-position: right;
+    
+  }
+  
+  
+  
+/* ......//Vision-Mission//...... */
+
+#vision-mission {
+  padding: 50px 0;
+  background: #ffffff;
+}
+
+.vision-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#vision-mission h2 {
+  font-size: 2.3rem;
+}
+
+#vision-mission p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+#vision-mission .small {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.vision-img {
+  flex: 1 1 400px;
+  padding: 30px;
+  transform: translateX(-150%);
+  animation: KJ-img-animation 1s ease-in-out forwards;
+}
+
+@keyframes KJ-img-animation {
+  100% {
+    transform: translate(0);
+  }
+}
+
+.vision-text {
+    text-align: justify;
+  flex: 1 1 400px;
+  padding: 30px;
+  transform: translate(150%);
+  animation: KJ-text-animation 1s ease-in-out forwards;
+}
+
+@keyframes KJ-text-animation {
+  100% {
+    transform: translate(0);
+  }
+}
+
+.vision-img img {
+  display: block;
+  height: 400px;
+  max-width: 100%;
+  margin: auto;
+  
+}
+
+
+.img-container1 {
+  margin: 0 1rem;
+  position: relative;
+}
+
+.img-content1 {
+  position: absolute;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.img-content1 ul{
+  position: absolute;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+.img-content1 h3 {
+  color: #fff;
+  font-size: 1.7rem;
+}
+
+.img-content1 ul li {
+  color: #fff;
+}
+.img-content1 a {
+  font-size: 1.2rem;
+}
+
+.img-container1::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.871);
+  opacity: 0;
+  z-index: 1;
+
+  transform: scaleY(0);
+  transform-origin: 100% 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.img-container1:hover::after {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.img-container1:hover .img-content1 {
+  opacity: 1;
+  top: 40%;
+}
+
+.img-container1:hover .img-content1 ul {
+  opacity: 1;
+  top: 40%;
+}
+
+
+
+
+
+/* ..........////Lakshyan Foundation / Privileged Athletes///........... */
+/* 
+#LF {
+  padding: 5rem 0 10rem 0;
+}
+
+#LF h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.LF-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5%;
+}
+
+.LF-container img {
+  display: block;
+  margin: auto;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: center;
+  width: 400px;
+  height: 250px;
+}
+
+.img-container {
+  margin: 0 1rem;
+  position: relative;
+  
+}
+
+.img-content {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+  text-align: center;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.img-content h3 {
+  color: #fff;
+  font-size: 2.2rem;
+}
+
+.img-content a {
+  font-size: 1.2rem;
+}
+
+.img-container::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.871);
+  opacity: 0;
+  z-index: 1;
+
+  transform: scaleY(0);
+  transform-origin: 100% 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.img-container:hover::after {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.img-container:hover .img-content {
+  opacity: 1;
+  top: 40%;
+} */
+
+/* .........../Our Atheletes/............ */
+
+.Athletes-heading {
+  text-align: center;
+  font-size: 3.4rem;
+  color: #666;
+}
+
+.Athletes-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 50px 0px 30px 0px;
+}
+
+.Athletes-container img {
+  display: block;
+  width: 250px;
+  height: 250px;
+  border-radius: 20%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.athletes_class {
+  display: flex;
+  flex: 1 1 60px;
+  justify-content: space-evenly;
+  margin-bottom: 3rem;
+}
+
+.Athletes-description {
+  margin: auto 1.5rem;
+}
+
+.Athletes-Name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #303030;
+}
+
+.Athletes-description ul li {
+  font-size: 1.2rem;
+  color: #555;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.Athletes-description{
+  padding-left: 5%;
+  color: #117964;
+  font-weight: 700;
+}
+
+
+/* ........./ Mentors /.......... */
+/* 
+
+.mentor-heading {
+  text-align: center;
+  font-size: 3.4rem;
+  font-weight: 400;
+  color: #666;
+}
+
+.mentor-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 0px 30px 0px;
+}
+
+.mentor-container img {
+  display: block;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mentor_class {
+  display: flex;
+  flex: 1 1 600px;
+  justify-content: space-evenly;
+  margin-bottom: 3rem;
+}
+
+.mentor-description {
+  margin: auto 1.5rem;
+  color: #117964;
+  font-weight: 700;
+}
+
+.mentor-Name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #303030;
+}
+
+.mentor-description p {
+  font-size: 1.2rem;
+  color: #555;
+  font-weight: 500;
+  text-align: justify;
+} */
+
+
+/* ........./ Founders /.......... */
+
+#testimonials {
+  padding: 5rem 0;
+  background: rgba(243, 243, 243);
+}
+
+.testimonial-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: #555;
+}
+
+.testimonial-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+
+.testimonial-box .checked {
+  color: #ff9529;
+}
+
+.testimonial-box .testimonial-text {
+  margin: 1rem 0;
+  color: #444;
+}
+
+.testimonial-box {
+  text-align: center;
+  padding: 1rem;
+}
+
+.customer-photo img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20%;
+  margin: auto;
+}
+
+/* ........ Contact Us........... */
+section {
+  position: relative;
+  z-index: 3;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.container {
+  max-width: 1380px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.section-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.section-header h2 {
+  color: black;
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.section-header p {
+  color: black;
+}
+
+.row  {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-info {
+  width: 50%;
+}
+
+.contact-info-item {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.contact-info-icon {
+    margin-top: 1%;
+  height: 70px;
+  width: 70px;
+  background-color: #00bcd4;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.contact-info-icon i {
+  font-size: 30px;
+  line-height: 70px;
+}
+
+.contact-info-content {
+  margin-left: 20px;
+}
+
+.contact-info-content h4 {
+  color: #1da9c0;
+  font-size: 1.4em;
+  margin-bottom: 5px;
+}
+
+.contact-info-content p {
+  color: black;
+  font-size: 1em;
+}
+
+.contact-form {
+  background-color: #fff;
+  padding: 40px;
+  width: 45%;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.contact-form h2 {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact-form .input-box {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.contact-form .input-box input,
+.contact-form .input-box textarea{
+  width: 100%;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 2px solid #333;
+  outline: none;
+  resize: none;
+}
+
+.contact-form .input-box span {
+  position: absolute;
+  left: 0;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: #666;
+}
+
+.contact-form .input-box input:focus ~ span,
+.contact-form .input-box textarea:focus ~ span{
+  color: #e91e63;
+  font-size: 12px;
+  transform: translateY(-20px);
+}
+
+.contact-form .input-box input[type="submit"]
+{
+  width: 100%;
+  background: #00bcd4;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #00bcd4;
+  transition: 0.5s;
+}
+
+.contact-form .input-box input[type="submit"]:hover
+{
+  background: #FFF;
+  color: #00bcd4;
+}
+
+@media (max-width: 991px) {
+  section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .row {
+    flex-direction: column;
+  }
+  
+  .contact-info {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  
+  .contact-form {
+    width: 100%;
+  }
+}#footer h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 2.6rem;
+  font-weight: 500;
+  color: #fff;
+  background: rgb(65, 65, 65);
+}
+
+.fa-heart:before{
+  color: red;
+  font-size:x-large;
+}
+
+
+/* ......../ media query /.......... */
+
+@media (max-width: 768px) {
+  .navbar {
+    opacity: 0.95;
+  }
+
+  .navbar-container input[type="checkbox"],
+  .navbar-container .hamburger-lines {
+    display: block;
+  }
+
+  .navbar-container {
+    display: block;
+    position: relative;
+    height: 64px;
+  }
+
+  .navbar-container input[type="checkbox"] {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 30px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+  }
+
+  .navbar-container .hamburger-lines {
+    display: block;
+    height: 23px;
+    width: 35px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .navbar-container .hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #333;
+  }
+
+  .navbar-container .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .navbar-container .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .navbar-container .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .navbar .menu-items {
+    padding-top: 100px;
+    background: #fff;
+    height: 100vh;
+    max-width: 300px;
+    transform: translate(-150%);
+    display: flex;
+    flex-direction: column;
+    margin-left: -40px;
+    padding-left: 50px;
+    transition: transform 0.5s ease-in-out;
+    box-shadow: 5px 0px 10px 0px #aaa;
+  }
+
+  .navbar .menu-items li {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .logo {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 2rem;
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .menu-items {
+    transform: translateX(0);
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(35deg);
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-35deg);
+  }
+
+  /* ......./ food /......... */
+
+  .food-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .food-type:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+
+  .food-type {
+    box-shadow: 5px 5px 10px 0 #aaa;
+  }
+
+  .img-container {
+    margin: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 65%;
+  }
+
+  .navbar .menu-items li{
+      font-size: 1.6rem;
+  }
+
+  .testimonial-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .food-menu-container img {
+    margin: auto;
+  }
+
+  .food-menu-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-container {
+    width: 90%;
+  }
+
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-img {
+    width: 90%;
+    margin: 3rem auto;
+  }
+
+  .logo {
+    position: absolute;
+    top: 06px;
+    right: 15px;
+    font-size: 3rem;
+  }
+
+  .navbar .menu-items li {
+    margin-bottom: 2.5rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .img-container h3 {
+    font-size: 1.5rem;
+  }
+
+  .img-container .btn {
+    font-size: 0.7rem;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .showcase-area {
+    height: 50vmax;
+  }
+}
+
+   </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lakshyan Foundation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- <link rel="stylesheet" href="view.css" /> -->
+  </head>
+  <body>
+    <!-- <nav class="navbar" style="height: 7%;">
+      
+      <div class="navbar-container container " >
+        <div id="logos" style="padding: 2%;">
+        <img src="logo_final.png" alt="" style="width: 8%; height:auto; margin-bottom: 2%;" >
+        <h2 style="margin-left: 2%;">Lakshyan Foundation</h2>
+        </div>
+          <input type="checkbox" name="" id="">
+          <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+          </div>
+          <ul class="menu-items">
+              <li><a href="#showcase">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#vision-mission">Vision</a></li>
+              <li><a href="#KJ">Program</a></li>
+              <li><a href="#Athletes">Achivements</a></li>
+              <li><a href="#mentor">Mentors</a></li>
+              <li><a href="#contact-us">Contact  </a></li>
+          </ul>
+          
+      </div>
+  </nav> -->
+
+  <nav id="navbar" class="">
+    <div class="nav-wrapper">
+      <!-- Navbar Logo -->
+      <div class="logo">
+        <!-- Logo Placeholder for Inlustration -->
+        <a href="#home"><img src="logo_final.png">
+        <h5>Lakshyan Foundation</h5></a>
+      </div>
+  
+      <!-- Navbar Links -->
+      <ul id="menu">
+        <li><a href="#showcase">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#vision-mission">Vision</a></li>
+        <li><a href="#KJ">Program</a></li>
+        <li><a href="#Athletes">Achivements</a></li>
+        <!-- <li><a href="#mentor">Mentors</a></li> -->
+        <li><a href="#contact-us">Contact  </a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  
+  <!-- Menu Icon -->
+  <div class="menuIcon">
+    <span class="icon icon-bars"></span>
+    <span class="icon icon-bars overlay"></span>
+  </div>
+  
+  
+  <div class="overlay-menu">
+    <ul id="menu">
+      <li><a href="#showcase">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#vision-mission">Vision</a></li>
+      <li><a href="#KJ">Program</a></li>
+      <li><a href="#Athletes">Achivements</a></li>
+      <li><a href="#mentor">Mentors</a></li>
+      <li><a href="#contact-us">Contact  </a></li>
+    </ul>
+  </div>
+    <section class="showcase-area" id="showcase">
+      <div class="showcase-container">
+        <a href="#contact-us" style="margin-top: 40%; margin-bottom: 5%;" class="btn3">LETS MAKE A DIFFERENCE !</a>
+        <h1 class="main-title" id="home" >LETS MAKE A DIFFERENCE !</h1>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-wrapper container">
+        <div class="about-text">
+          <p class="small">About Us</p>
+          <h2>We Believe in <br />“People Power”.<br />
+            Yours and Ours.</h2>
+          <p>
+            At Lakshyan Foundation, we support athletes in achieving their 
+                  dreams by offering a nurturing environment and comprehensive 
+                  support. Our commitment goes beyond performance; we aim to 
+                  develop well-rounded individuals who excel in sports, contribute
+                   to their communities, and inspire future generations. 
+                   Together, we're shaping a brighter future for sports and making a positive impact on many lives.
+          </p>
+        </div>
+        <div class="about-img">
+          <img src="https://media.istockphoto.com/id/984020344/photo/child-playing-outdoor-in-the-nature.jpg?s=612x612&w=0&k=20&c=6XWzu5qIP1P4HNIVIr_gAel4WDzrTZRee0rGHU9LARk=" alt="food" />
+        </div>
+      </div>
+    </section>
+
+    <section id="vision-mission">
+      <div class="vision-wrapper container">
+        <div class="vision-img" style="padding-top: 8%;">
+          <img   src="VM.jpg" alt="food" />
+        </div>
+        <div class="vision-text ">
+        <div class="vision-text " style="padding: 0%;">
+          <h2><b>Vision & Mission</b></h2>
+          <p>
+            <b>Vision:</b> To become a leading institution in nurturing world-class athletes by 
+            fostering excellence, inclusivity, and growth. Our goal is to elevate Indian sports 
+            to global recognition, inspiring athletes to reach their full potential and positively
+             impact their communities and the nation.
+             <br><br>
+            <b>Mission:</b> To provide top-tier coaching, facilities, and holistic support, 
+            fostering athletes' skill development and character growth. We promote sportsmanship, 
+            discipline, and resilience, empowering athletes from diverse backgrounds to excel and 
+            contribute to both the sports community and society.
+            
+            
+          </p>
+        </div>
+        <div class="vision-text " style="padding: 0%; padding-top: 5%;">
+          <h2><b>Objective</b></h2>
+          <p>
+            To develop top-tier athletes through expert coaching, cutting-edge facilities, 
+            and comprehensive support, while promoting sportsmanship, resilience, and community impact.
+          </p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+    <section id="KJ">
+      <div class="KJ-wrapper container">
+        <div class="KJ-img">
+            
+          <img  src="kj.jpg" alt="food" />
+            
+        </div>
+        <div class="KJ-text ">
+          <p class="small">Proposed Program</p>
+          <p>
+          <h2>KREEDA JAGRITHI</h2>
+          Project ‘Kreeda Jagrithi’ is an opportunity to positively contribute
+          to the lives of underprivileged children in urban areas.
+          Providing children exposure to structured training and enhancing
+          their holistic development. <br>
+          To promote physical fitness, healthy lifestyle and improve
+          social & cognitive skills among children.
+          </p>
+        </div> 
+      </div>
+    </section>
+
+<!-- 
+    <section id="LF">
+      <h2 style="font-weight: bolder; color: black;">Lakshyan Foundation / Privileged Athletes
+        <p style="font-size: 100%; color: rgb(56, 161, 253); font-weight: bold;">
+          Underprivileged athletes, Lakshyan Foundation provides a comprehensive support system that includes:
+        </p> </h2>
+      
+      <div class="LF-container container" >
+        <div class="PA-type coach">
+          <div class="img-container" >
+            <img src="coach.png" alt="error" />
+            <div class="img-content">
+              <h3>Coaching</h3>
+              <a
+                href="#"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="PA-type strength">
+          <div class="img-container">
+            <img src="strength.jpg" alt="error" />
+            <div class="img-content">
+              <h3>Strength & Conditioning </h3>
+              <a
+                href="#"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="PA-type Pychotheraphy">
+          <div class="img-container">
+            <img src="Physio.png" alt="error" />
+            <div class="img-content">
+              <h3>Physiotherapy</h3>
+              <a
+                href="#"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="LF-container container">
+        <div class="PA-type travel">
+          <div class="img-container">
+            <img src="TS.png" alt="error" />
+            <div class="img-content">
+              <h3>Travel Support</h3>
+              <a
+                href="#"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="PA-type tournament">
+          <div class="img-container">
+            <img src="Tourna.png" alt="error" />
+            <div class="img-content">
+              <h3>Tournament Participation</h3>
+              <a
+                href="#"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="PA-type exposure">
+          <div class="img-container">
+            <img src="exp.png" alt="error" />
+            <div class="img-content">
+              <h3>Exposure</h3>
+              <a
+                href="#"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="LF-container container">
+        <div class="Pa-type ss">
+          <div class="img-container">
+            <img src="science.png" alt="error" />
+            <div class="img-content">
+              <h3>Sports Science</h3>
+              <a
+                href="#"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+ -->
+
+    <section id="Athletes">
+      <h2 class="Athletes-heading" style="font-size: 3.4rem; font-weight: bolder; color: black;">
+        Our Achiver's</h2>
+      <div class="Athletes-container container">
+        <div class="athletes_class">
+          <div class="Athletes-img">
+            <img src="apoorv.png" alt="" />
+          </div>
+          <div class="Athletes-description">
+            <h2 class="Athletes-Name">Apoorv Kamble</h2>
+            <ul>
+              <li>
+               <b> FIDE Rating:</b> 2369
+              </li>
+              
+              <li>
+               <b> TITLE:</b> FIDE Master
+              </li>
+              <li>
+               <b> DoB / Age:</b> 04 / 05 / 2009 (14 Years Old)
+              </li>
+              <li>
+                <b>National Rank:</b> 122nd (amongst active players / open category
+              </li>
+              <li>
+               <b> Background:</b> Apoorv started playing chess at a young age, and owing
+                to dedicated training and consistent efforts, he achieved the FIDE
+                Master at just the age of 14 years. Born in a humble family in Pune
+                and raised in Bangalore, he is currently pursuing his 10th grade studies
+                at Shishya BEML Public School. Apoorv’s father is a private sector
+                employee while mother is a homemaker and the family resides in C V
+                Raman Nagar, Bangalore. Apoorv has been under the Lakshyan
+                Foundation’s Namma Chess Scholarship Program since May, 2023.
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+
+        <div class="athletes_class">
+          <div class="Athletes-img">
+            <img
+              src="shreya.png"
+              alt="error"
+            />
+          </div>
+          <div class="Athletes-description">
+            <h2 class="Athletes-Name">Shreya Rajesh</h2>
+            <ul>
+              <li>
+               <b> FIDE Rating:</b>---
+              </li>
+              
+              <li>
+               <b> TITLE:</b>---
+              </li>
+              <li>
+               <b> DoB / Age:</b> ---
+              </li>
+              <li>
+                <b>National Rank:</b> ---
+              </li>
+              <li>
+               <b> Background:</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
+               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+               ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in v
+               oluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+               sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="athletes_class">
+          <div class="Athletes-img">
+            <img
+              src="tt.jpg"
+              alt="error"
+            />
+          </div>
+          <div class="Athletes-description">
+            <h2 class="Athletes-Name">Elite TT Camp</h2>
+            <ul>
+              <li>
+               <b> FIDE Rating:</b>---
+              </li>
+              
+              <li>
+               <b> TITLE:</b>---
+              </li>
+              <li>
+               <b> DoB / Age:</b> ---
+              </li>
+              <li>
+                <b>National Rank:</b> ---
+              </li>
+              <li>
+               <b> Background:</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
+               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+               ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in v
+               oluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+               sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+<!--     
+    <section id="mentor">
+      <h2 class="mentor-heading" style="font-size: 3.4rem; font-weight: bolder;">Our Mentors</h2>
+=======
+    
+    <section id="mentor" >
+      <h2 class="mentor-heading" style="font-size: 3.4rem; font-weight: bolder; color: black;">Our Mentors</h2>
+>>>>>>> 18f367af0d64a4f3bc6c4345e2779f687630b34d
+      <div class="mentor-container container">
+        <div class="mentor_class">
+          <div class="mentor-img">
+            <img src="https://staticg.sportskeeda.com/editor/2020/02/afb35-15825939897422-800.jpg" alt="" />
+          </div>
+          <div class="mentor-description">
+            <h2 class="mentor-Name">Pullela Gopichand <br>
+              Chief Mentor - Badminton</h2>
+            <p>
+              Five-time winner of the National Badminton Championship, and former Chief Coach of the Indian Badminton Team.
+            </p>
+          </div>
+        </div>
+
+        <div class="mentor_class">
+          <div class="mentor-img">
+            <img
+              src="https://cbin.b-cdn.net/img/RA/Ramesh_5_T6340_1000x667.jpeg?size=800"
+              alt="error"
+            />
+          </div>
+          <div class="mentor-description">
+            <h2 class="mentor-Name">Ramachandran Ramesh <br>
+              Chief Mentor - Chess</h2>
+            <p>
+              Chess Grandmaster and former coach of the Indian Olympiad team,
+               Mr. Ramachandran is helping India's next generation of Chess 
+               champions achieve their full potential.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mentor-container container" style="width: 50%; margin-left: 5%;">
+        <div class="mentor_class" >
+          <div class="mentor-img">
+            <img
+              src="https://staticimg.amarujala.com/assets/images/2022/11/16/achanta-sharath-kamal_1668618787.jpeg"
+              alt="error"
+            />
+          </div>
+          <div class="mentor-description">
+            <h2 class="mentor-Name">Sharath Kamal <br>
+              Chief Mentor - Table Tennis</h2>
+            <p style="width: 85%; text-align: justify;">
+              The only Table Tennis player to have won 10 Senior National Championships,
+               Mr. Sharath is giving back to the sport by mentoring the future Table 
+               Tennis Champions of India.
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+ -->
+
+    <section id="testimonials">
+      <h2 class="testimonial-title" style="font-size: 3.4rem; font-weight: bolder; color: black;">Foundation Directors</h2>
+      <div class="testimonial-container container">
+        
+        <div class="testimonial-box">
+          <div class="customer-detail">
+            <div class="customer-photo">
+              <img
+                src="https://i.ibb.co/7Shy8DH/jeevan.jpg"
+                alt=""
+              />
+              <p class="customer-name">J. Mahadevu</p>
+              <p class="customer-name">Director</p>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            Jeevan Mahadevu is an engineer who has channelled his
+             passion into creating a state-of-the-art sporting facility
+              to help athletes train to compete at the highest level.
+          </p>
+         
+        </div>
+        <div class="testimonial-box">
+          <div class="customer-detail">
+            <div class="customer-photo">
+              <img src="https://i.ibb.co/g7KZCMf/yashika.jpg" alt="" />
+              <p class="customer-name">L. Yashica</p>
+              <p class="customer-name">Director</p>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            A former National Basketball player, 
+            L. Yashica nurtures the potential of India's future 
+            generations of athletes through her work at Lakshyan.
+          </p>
+         
+        </div>
+      </div>
+    </section>
+
+
+
+
+    
+    <section id="contact-us">
+    
+      <div class="section-header">
+        <div class="container">
+          <h2>Contact Us</h2>
+          </div>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+          
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-home"></i>
+              </div>
+              
+              <div class="contact-info-content">
+                <h4>Address</h4>
+                <p>
+                  Lakshyan Foundation <br>
+                  No.126/5, Sulikunte Village,<br>
+                  Sarjapur Main Road,<br>
+                  Varthur, Hobli,<br>
+                  Bangalore - 56212
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              
+              <div class="contact-info-content">
+                <h4>Phone</h4>
+                <p>+91 7022314523 <br>+91 8069031500
+                  </p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              
+              <div class="contact-info-content">
+                <h4>Email</h4>
+               <p>lakshyanfoundation@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <form action="" id="contact-form">
+              <h2>Send Message</h2>
+              <div class="input-box">
+                <input type="text" required="true" name="">
+                <span>Full Name</span>
+              </div>
+              
+              <div class="input-box">
+                <input type="email" required="true" name="">
+                <span>Email</span>
+              </div>
+              
+              <div class="input-box">
+                <textarea required="true" name=""></textarea>
+                <span>Type your Message...</span>
+              </div>
+              
+              <div class="input-box">
+                <input type="submit" value="Send" name="">
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    <footer id="footer">
+      <h2 >Made with <i style="font-size: large; text-align: center;" class="fas fa-heart fa-2x bg-red"> </i> by Kartik Rajput</h2>          
+            
+    </footer>
+  </body>
+  <!-- 
+    .................../ JS Code for smooth scrolling /...................... -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Add smooth scrolling to all links
+      $("a").on("click", function (event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $("html, body").animate(
+            {
+              scrollTop: $(hash).offset().top,
+            },
+            800,
+            function () {
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            }
+          );
+        } // End if
+      });
+    });
+  </script>
+</html>
